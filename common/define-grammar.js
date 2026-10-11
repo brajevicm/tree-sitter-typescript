@@ -79,6 +79,7 @@ module.exports = function defineGrammar(dialect) {
       // This appears to be necessary to parse a parenthesized class expression
       [$.class],
       [$._type_query_member_expression_in_type_annotation],
+      [$.primary_expression, $.global_namespace],
 
       [$.nested_identifier, $.nested_type_identifier, $.primary_expression],
       [$.nested_identifier, $.nested_type_identifier],
@@ -1095,6 +1096,7 @@ module.exports = function defineGrammar(dialect) {
         'override',
         'readonly',
         'module',
+        'global',
         'any',
         'number',
         'boolean',

@@ -1488,3 +1488,26 @@ class Bar extends Foo {
         name: (property_identifier)
         parameters: (formal_parameters)
         body: (statement_block)))))
+
+=======================================
+Global as an identifier
+=======================================
+
+global.fetch = mock;
+class A extends global {}
+
+---
+
+(program
+  (expression_statement
+    (assignment_expression
+      left: (member_expression
+        object: (identifier)
+        property: (property_identifier))
+      right: (identifier)))
+  (class_declaration
+    name: (type_identifier)
+    (class_heritage
+      (extends_clause
+        value: (identifier)))
+    body: (class_body)))

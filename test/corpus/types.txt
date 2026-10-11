@@ -2357,3 +2357,28 @@ const foo: import('bar').Bar<string> = 'baz';
             (predefined_type))))
       (string
         (string_fragment)))))
+
+=======================================
+Type parameter named out
+=======================================
+
+type F<out> = out[]
+
+type G<in out> = out
+
+---
+
+(program
+  (type_alias_declaration
+    name: (type_identifier)
+    type_parameters: (type_parameters
+      (type_parameter
+        name: (type_identifier)))
+    value: (array_type
+      (type_identifier)))
+  (type_alias_declaration
+    name: (type_identifier)
+    type_parameters: (type_parameters
+      (type_parameter
+        name: (type_identifier)))
+    value: (type_identifier)))
